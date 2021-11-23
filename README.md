@@ -2,7 +2,7 @@
 
 'Business logic layer' za Angular frontend app - https://github.com/Haris-Basic/My-Music-Angular.
 
-Potrebno za pokretanje: Visual Studio 2016/17/19/22.
+Potrebno za pokretanje: Visual Studio.
 Instaliran SQL Server.
 
 I.   Pokrenuti Solutions MyMusic.sln.
