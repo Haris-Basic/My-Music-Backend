@@ -13,5 +13,3 @@ V.   Preko Swaggera unijeti nekoliko muzickih kategorija
 VI.  Unijeti jednog korisnika, voditi racuna da potvrdite password.
       
       Time bi vas Backend bio spreman za koristenje frontenda (Angular).
-      
-Angular app: https://github.com/Haris-Basic/My-Music-Angular
