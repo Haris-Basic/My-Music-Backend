@@ -11,8 +11,7 @@ namespace MyMusic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors]
-    //[Authorize]
+    [Authorize]
     public class BaseReadController<T,TSearch> : Controller where T : class where TSearch : class
     {
         protected IReadService<T, TSearch> _service;

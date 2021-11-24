@@ -35,6 +35,17 @@ namespace MyMusic
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+                });
+            });
+            services.AddMvc();
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -56,7 +67,6 @@ namespace MyMusic
 
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvc();
 
             services.AddDbContext<MyMusicContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -64,19 +74,6 @@ namespace MyMusic
             services.AddScoped<ISongsService, SongService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IUsersService, UsersService>();
-
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("EnableCORS", builder =>
-                {
-                    builder.AllowAnyOrigin()
-                       .AllowAnyHeader()
-                       .AllowAnyMethod();
-                });
-            });
-
-            services.AddControllers();
 
             services.AddSwaggerGen(swagger =>
             {
@@ -139,6 +136,7 @@ namespace MyMusic
             app.UseAuthorization();
 
             app.UseCors("EnableCORS");
+            //app.UseMvc();
 
             app.UseEndpoints(endpoints =>
             {

@@ -12,8 +12,7 @@ namespace MyMusic.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [EnableCors]
-    //[Authorize(Roles = "Administrator")]
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly IUsersService _service;
